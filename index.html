@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Koduri Ganesh — Portfolio (Cybersecurity & Tech)</title>
+  <meta name="description" content="Portfolio of Koduri Ganesh — Vice Manager, Cybersecurity Specialist, Tech Enthusiast" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#06070a;
+      --card: rgba(255,255,255,0.04);
+      --glass-border: rgba(255,255,255,0.06);
+      --accent:#d4af37; 
+      --text:#f3f4f6;
+      --muted:rgba(243,244,246,0.72);
+      --max-width:980px;
+      --radius:16px;
+      --shadow: 0 12px 40px rgba(2,6,23,0.65);
+      --glass-shadow: 0 8px 30px rgba(2,6,23,0.55);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;padding:0;font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,Arial;
+      background: radial-gradient(1200px 420px at 10% 6%, rgba(212,175,55,0.03), transparent), linear-gradient(180deg,#010103 0%, #071014 100%);
+      color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;padding-bottom:40px;
+    }
+
+    .sky{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+    .stars, .stars::after{content:'';position:absolute;inset:0;background-repeat:repeat;opacity:1}
+    .stars{background-image:radial-gradient(2px 2px at 10px 20px, rgba(255,255,255,0.9) 50%, transparent 51%), radial-gradient(1px 1px at 40px 60px, rgba(255,255,255,0.8) 50%, transparent 51%);background-size:120px 120px, 200px 200px;animation:twinkle 6s linear infinite}
+    .stars::after{background-image:radial-gradient(1.6px 1.6px at 30px 10px, rgba(255,255,255,0.9) 50%, transparent 51%);background-size:150px 150px;animation:twinkle 9s linear infinite;opacity:0.8}
+    @keyframes twinkle{0%{opacity:0.6}50%{opacity:1}100%{opacity:0.6}}
+
+    .moon{position:fixed;right:6vw;top:6vh;width:120px;height:120px;border-radius:50%;z-index:1;filter:drop-shadow(0 10px 30px rgba(0,0,0,0.6));background:radial-gradient(circle at 30% 30%, #fffafa 0%, #f6f0da 10%, #f0e7c7 18%, #d9d3b0 40%, rgba(255,255,255,0.04) 100%);opacity:0.95}
+    .moon::after{content:'';position:absolute;left:18px;top:26px;width:22px;height:22px;background:rgba(0,0,0,0.06);border-radius:50%;box-shadow:18px 14px 0 rgba(0,0,0,0.05), -10px 40px 0 rgba(0,0,0,0.04)}
+
+    .cloud{position:fixed;right:0;top:14vh;width:420px;height:220px;border-radius:50%;filter:blur(18px);background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(212,175,55,0.02));opacity:0.6;z-index:0}
+
+    .rain{position:fixed;inset:0;z-index:2;pointer-events:none;}
+    .drop{position:absolute;top:-10vh;width:2px;height:14px;border-radius:2px;background:linear-gradient(180deg, rgba(212,175,55,0.65), rgba(212,175,55,0.15));opacity:0.7;transform:rotate(-15deg);filter:blur(0.2px)}
+
+    .wrap{position:relative;z-index:10;max-width:var(--max-width);margin:18px auto;padding:18px;gap:16px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter:blur(8px);border:1px solid var(--glass-border);box-shadow:var(--glass-shadow)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:800;font-family:'Bubblegum Sans';font-size:18px;color:var(--accent);background:linear-gradient(135deg, rgba(212,175,55,0.12), rgba(212,175,55,0.02));border:1px solid rgba(212,175,55,0.08)}
+    .nav .menu{display:flex;gap:8px;align-items:center}
+    .nav a{color:var(--accent);text-decoration:none;padding:8px 10px;border-radius:10px;font-weight:600}
+
+    .hero{display:flex;flex-direction:column;gap:14px;margin-top:12px}
+    .profile-top{display:flex;flex-direction:column;align-items:center;gap:12px;z-index:11}
+    .profile-circle{width:132px;height:132px;border-radius:999px;overflow:hidden;border:6px solid rgba(212,175,55,0.14);display:grid;place-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(212,175,55,0.01));box-shadow:0 12px 30px rgba(0,0,0,0.6);transition:transform 220ms ease}
+    .profile-circle img{width:100%;height:100%;object-fit:cover;display:block}
+    .profile-wrap a{display:block;border-radius:999px}
+    .profile-name{font-family:'Playfair Display', serif;font-size:22px;font-weight:700}
+    .profile-role{font-size:13px;color:var(--muted)}
+    .hero-card{background:var(--card);border-radius:14px;padding:14px;border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);backdrop-filter:blur(8px)}
+
+    .intro-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:12px;border:1px solid var(--glass-border);display:flex;gap:8px;align-items:center}
+    .card svg{width:20px;height:20px;flex-shrink:0}
+    .meta{font-size:13px;color:var(--muted)}
+
+    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .btn{padding:10px 12px;border-radius:12px;border:1px solid var(--glass-border);background:transparent;color:var(--accent);font-weight:700}
+    .download{background:linear-gradient(90deg,#fffbf0 0%, rgba(212,175,55,0.10) 100%);color:#1c1b18;border:0}
+
+    .grid-2{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px}
+    .panel{padding:14px;border-radius:12px;border:1px solid var(--glass-border);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:var(--glass-shadow)}
+
+    .skills-list{display:flex;flex-direction:column;gap:8px}
+    .skill{display:flex;gap:8px;align-items:center}
+    .skill .bar{flex:1;height:8px;background:rgba(255,255,255,0.03);border-radius:999px}
+    .skill .bar > i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent), rgba(212,175,55,0.5));}
+
+    .socials{display:flex;gap:8px;align-items:center}
+    .socials a{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;border:1px solid var(--glass-border);background:transparent;color:var(--accent);font-weight:700}
+
+    footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
+
+    @media (min-width:820px){
+      .hero{flex-direction:row;align-items:flex-start}
+      .profile-top{flex:0 0 360px;align-items:flex-start}
+      .grid-2{grid-template-columns:1fr 360px}
+      .profile-circle{width:160px;height:160px}
+    }
+
+    @media (max-width:420px){
+      .profile-circle{width:110px;height:110px}
+      .logo{width:40px;height:40px}
+    }
+
+    .profile-circle:hover{transform:translateY(-6px)}
+  </style>
+</head>
+<body>
+
+  <div class="sky">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="moon" aria-hidden="true"></div>
+    <div class="cloud" aria-hidden="true"></div>
+    <div class="rain" id="rainLayer" aria-hidden="true"></div>
+  </div>
+
+  <div class="wrap" role="document">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">KG</div>
+        <div>
+          <div style="font-weight:800">Koduri Ganesh</div>
+          <div style="font-size:12px;color:var(--muted)">Portfolio • Vice Manager</div>
+        </div>
+      </div>
+      <div class="menu" role="menubar" aria-label="Sections">
+        <a href="#about" role="menuitem">About</a>
+        <a href="#projects" role="menuitem">Projects</a>
+        <a href="#skills" role="menuitem">Skills</a>
+        <a href="#contact" class="download" role="menuitem">Contact</a>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div class="profile-top">
+        <div class="profile-wrap">
+          <a href="https://www.instagram.com/ganesh_goud_koduri_" target="_blank" rel="noopener" title="Open Instagram">
+            <div class="profile-circle">
+              <img src="profile.png" alt="Koduri Ganesh — profile" />
+            </div>
+          </a>
+        </div>
+        <div style="text-align:center;margin-top:6px">
+          <div class="profile-name">Koduri <span style="color:var(--accent)">Ganesh</span></div>
+          <div class="profile-role">Vice Manager · Cybersecurity Specialist · Tech Enthusiast</div>
+          <div class="actions" style="justify-content:center;margin-top:8px">
+            <button class="btn download" id="downloadResume">Download Resume</button>
+            <button class="btn" id="hireBtn">Hire / Contact</button>
+            <button class="btn" id="themeToggle">Toggle Theme</button>
+          </div>
+        </div>
+
+        <div class="hero-card" style="margin-top:12px;width:100%">
+          <p style="margin:0;font-weight:700">Quick info</p>
+          <div class="intro-grid" style="margin-top:10px">
+            <div class="card">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 5.18 2 2 0 0 1 4 3h3a2 2 0 0 1 2 1.72c.12 1.05.36 2.07.7 3.02a2 2 0 0 1-.45 2.11L8.09 11.91a16 16 0 0 0 6 6l1.06-1.06a2 2 0 0 1 2.11-.45c.95.34 1.97.58 3.02.7A2 2 0 0 1 21 16.92z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div>
+                <div style="font-weight:800">Phone</div>
+                <div class="meta"><a href="tel:+917993472109" style="color:var(--muted);text-decoration:none">+91 79934 72109</a></div>
+              </div>
+            </div>
+            <div class="card">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8l9 6 9-6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 19H3V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div>
+                <div style="font-weight:800">Email</div>
+                <div class="meta"><a href="mailto:koduriganesh55@gmail.com" style="color:var(--muted);text-decoration:none">koduriganesh55@gmail.com</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex:1">
+        <section class="panel" id="about">
+          <h2 style="font-family:'Playfair Display';margin:0 0 8px 0">About Me</h2>
+          <p class="meta">Experienced Vice Manager specializing in Cybersecurity and IT operations. Passionate about securing digital assets, managing tech teams, and implementing best practices for enterprise environments.</p>
+
+          <div style="margin-top:12px">
+            <h3 style="margin-bottom:8px">Top Skills</h3>
+            <div class="skills-list">
+              <div class="skill"><div style="width:120px;font-weight:700">Cybersecurity</div><div class="bar" aria-hidden><i style="width:92%"></i></div></div>
+              <div class="skill"><div style="width:120px;font-weight:700">Network Management</div><div class="bar" aria-hidden><i style="width:88%"></i></div></div>
+              <div class="skill"><div style="width:120px;font-weight:700">Team Leadership</div><div class="bar" aria-hidden><i style="width:90%"></i></div></div>
+              <div class="skill"><div style="width:120px;font-weight:700">IT Strategy</div><div class="bar" aria-hidden><i style="width:85%"></i></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="panel" style="margin-top:12px">
+          <h2 style="margin:0 0 8px 0">Projects & Work</h2>
+          <p class="meta">Selected works demonstrating technology implementation, security audits, and leadership in IT projects.</p>
+
+          <div style="margin-top:12px">
+            <article style="margin-bottom:10px">
+              <div style="font-weight:800">Enterprise Security Audit</div>
+              <div class="meta">Led a full audit of network security and access controls for a mid-sized firm. Year: 2025</div>
+            </article>
+            <article style="margin-bottom:10px">
+              <div style="font-weight:800">Tech Team Management</div>
+              <div class="meta">Supervised IT operations, including system updates, cloud deployment, and cybersecurity monitoring.</div>
+            </article>
+            <article>
+              <div style="font-weight:800">Automation & Monitoring</div>
+              <div class="meta">Implemented monitoring scripts and automated reports to increase efficiency and detect anomalies.</div>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <aside style="flex:0 0 320px;margin-top:12px">
+        <div class="panel" id="contact">
+          <h3 style="margin:0 0 8px 0">Contact</h3>
+          <p class="meta">Reach me directly via phone, email, or message.</p>
+
+          <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+            <input class="input" placeholder="Your name" id="name" required style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--glass-border);background:transparent;color:var(--text)" />
+            <input class="input" placeholder="Your email" id="email" required style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--glass-border);background:transparent;color:var(--text);margin-top:8px" />
+            <textarea id="message" placeholder="Message" required style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--glass-border);background:transparent;color:var(--text);margin-top:8px;min-height:100px"></textarea>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+              <button class="btn download" type="submit">Send Message</button>
+              <a class="btn" href="tel:+917993472109">Call Me</a>
+              <a class="btn" href="https://wa.me/917993472109" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </form>
+
+          <div style="margin-top:12px">
+            <div style="font-weight:700">Social</div>
+            <div class="socials" style="margin-top:8px">
+              <a href="https://www.instagram.com/ganesh_goud_koduri_" target="_blank" rel="noopener">Instagram</a>
+              <a href="mailto:koduriganesh55@gmail.com">Email</a>
+              <a href="tel:+917993472109">Phone</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </header>
+
+<!-- Add this inside your hero section, after the hero-card -->
+<div class="hero-card" style="margin-top:12px;width:100%">
+  <p style="margin:0;font-weight:700">Digital Locations</p>
+  <div class="intro-grid" style="margin-top:10px">
+    <div class="card">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        <div style="font-weight:800">Current Location</div>
+        <div class="meta">Karimnagar</div>
+      </div>
+    </div>
+    <div class="card">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        <div style="font-weight:800">Next Location</div>
+        <div class="meta">Hyderabad</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;max-width:900px;margin:12px auto">
+        <div style="font-weight:700">Koduri Ganesh</div>
+        <div class="meta">Built by Gani❤ — 🦅</div>
+      </div>
+      <div style="margin-top:8px">© <span id="year"></span> Koduri Ganesh. Vny Kodimail.</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('themeToggle').addEventListener('click', ()=>{
+      document.body.classList.toggle('lightmode');
+      if(document.body.classList.contains('lightmode')){
+        document.documentElement.style.setProperty('--bg','#f9fafb');
+        document.documentElement.style.setProperty('--text','#0b1220');
+        document.documentElement.style.setProperty('--card','rgba(2,6,23,0.02)');
+        document.documentElement.style.setProperty('--glass-border','rgba(0,0,0,0.06)');
+        document.documentElement.style.setProperty('--muted','rgba(2,6,23,0.6)');
+      } else {
+        document.documentElement.style.setProperty('--bg','#06070a');
+        document.documentElement.style.setProperty('--text','#f3f4f6');
+        document.documentElement.style.setProperty('--card','rgba(255,255,255,0.04)');
+        document.documentElement.style.setProperty('--glass-border','rgba(255,255,255,0.06)');
+        document.documentElement.style.setProperty('--muted','rgba(243,244,246,0.72)');
+      }
+    });
+
+    document.getElementById('downloadResume').addEventListener('click', async ()=>{
+      const url = 'resume.pdf';
+      try{
+        const res = await fetch(url, { method:'HEAD' });
+        if(res.ok){
+          const a = document.createElement('a'); a.href = url; a.download = 'Koduri_Ganesh_Resume.pdf'; document.body.appendChild(a); a.click(); a.remove(); return;
+        }
+      }catch(e){}
+      const txt = Name: Koduri Ganesh\nPhone: +91 79934 72109\nEmail: koduriganesh55@gmail.com\nSkills: Cybersecurity, Network Management, Team Leadership, IT Strategy;
+      const blob = new Blob([txt], {type:'text/plain'});
+      const blobUrl = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = blobUrl; a.download = 'Koduri_Ganesh_Resume.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(blobUrl);
+      alert('Downloaded simple text resume. Upload a real resume.pdf to your site root to enable a proper PDF download.');
+    });
+
+    function submitForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name || !email || !message){ alert('Please fill all fields'); return; }
+      alert('Thanks, ' + name + '! (Demo) Replace the form action with EmailJS or server endpoint to send messages.');
+      e.target.reset();
+    }
+
+    (function makeRain(){
+      const rainLayer = document.getElementById('rainLayer');
+      const drops = 36;
+      for(let i=0;i<drops;i++){
+        const d = document.createElement('span');
+        d.className = 'drop';
+        const left = Math.random()*100;
+        const delay = Math.random()*-10;
+        const duration = 1.2 + Math.random()*1.6;
+        const height = 8 + Math.random()*18;
+        d.style.left = left + 'vw';
+        d.style.height = height + 'px';
+        d.style.opacity = 0.4 + Math.random()*0.6;
+        d.style.animation = fall ${duration}s linear ${delay}s infinite;
+        rainLayer.appendChild(d);
+      }
+      const sheet = document.createElement('style'); sheet.innerHTML = @keyframes fall{0%{transform:translateY(-10vh)}100%{transform:translateY(110vh)}}; document.head.appendChild(sheet);
+    })();
+
+    document.querySelectorAll('.nav a').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        if(a.getAttribute('href')?.startsWith('#')){
+          e.preventDefault(); 
+          const target = document.querySelector(a.getAttribute('href'));
+          if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    document.addEventListener('keyup', (e)=>{ if(e.key === 'Tab') document.body.classList.add('show-focus'); });
+  </script>
+</body>
+</html>
